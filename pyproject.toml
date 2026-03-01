@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "taskflow"
+version = "0.2.0"
+description = "A To-Do application with separate CLI and GUI versions."
+authors = [
+    { name = "Jules" }
+]
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+dependencies = [
+    "PyQt6"
+]
+
+[project.scripts]
+taskflow-cli = "cli:main"
+taskflow-gui = "gui:main"
+taskflow = "main:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+py-modules = ["cli", "gui", "main", "task_manager"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
